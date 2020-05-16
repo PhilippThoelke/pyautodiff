@@ -1,5 +1,4 @@
 from pyautodiff import Variable
-import math
 
 # create variables
 v1 = Variable(3)
