@@ -1,5 +1,6 @@
 from pyautodiff import Variable
 import random
+import math
 
 class Neuron:
 	def __init__(self, n_in):
@@ -7,12 +8,15 @@ class Neuron:
 		self.weights = [Variable(random.gauss(0, 1)) for _ in range(n_in)]
 
 	def __call__(self, x):
-		return sum(xi * w for xi, w in zip(x, self.weights)) + self.bias
+		return Neuron._sigmoid(sum(xi * w for xi, w in zip(x, self.weights)) + self.bias)
+
+	def _sigmoid(x):
+		return 1 / (1 + math.e ** -x)
 
 	def variables(self):
 		return self.weights + [self.bias]
 
-	def apply_gradient(self, gradient, lr=0.005):
+	def apply_gradient(self, gradient, lr=1):
 		for var, grad in zip(self.variables(), gradient):
 			var.set(float(var) - lr * grad)
 
@@ -36,4 +40,4 @@ if __name__ == '__main__':
 
 	print('\nTesting...')
 	for sample in data:
-		print(f'Prediction for {sample}: {float(n(sample)) > 0.5}')
+		print(f'Prediction for {sample}: {float(n(sample)):.3f} --> {float(n(sample)) > 0.5}')
