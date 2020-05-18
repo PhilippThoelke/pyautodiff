@@ -79,6 +79,9 @@ class Operation:
 		else:
 			raise NotImplementedError(f'Operation {self.op} undefined')
 
+	def __repr__(self):
+		return f'{self.op}({float(self.v1):.3f}' + (')' if self.op == 'VAR' else f', {float(self.v2):.3f})')
+
 class Variable(Operation):
 	def set(self, value):
 		self.v1 = value
