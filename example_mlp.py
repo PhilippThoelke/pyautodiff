@@ -1,4 +1,4 @@
-from pyautodiff import Variable, Operation
+from pyautodiff import Variable
 import random
 import math
 
