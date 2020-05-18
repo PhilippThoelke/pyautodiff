@@ -22,8 +22,9 @@ class Operation:
 		elif self.op == 'DIV':
 			return float((g1 * self.v2 - self.v1 * g2) / self.v2 ** 2)
 		elif self.op == 'POW':
+			log_v1 = log(float(self.v1)) if float(self.v1) > 0 else 0.0
 			return (float(self.v2) * float(self.v1) ** (float(self.v2) - 1) * g1) + \
-				   (log(float(self.v1)) * float(self.v1) ** float(self.v2) * g2)
+				   (log_v1 * float(self.v1) ** float(self.v2) * g2)
 		elif self.op == 'VAR':
 			return 1.0 if self == vars else 0.0
 		else:
