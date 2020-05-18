@@ -20,7 +20,7 @@ class Operation:
 		elif self.op == 'DIV':
 			return float((g1 * self.v2 - self.v1 * g2) / self.v2 ** 2)
 		elif self.op == 'POW':
-			return float(self.v2) * float(self.v1) ** (float(self.v2) - 1) if self.v1 == vars else 0
+			return float(self.v2) * float(self.v1) ** (float(self.v2) - 1) * g1
 		elif self.op == 'VAR':
 			return 1.0 if self == vars else 0.0
 		else:
