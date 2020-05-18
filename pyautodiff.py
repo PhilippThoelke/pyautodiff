@@ -27,8 +27,6 @@ class Operation:
 				   (log_v1 * float(self.v1) ** float(self.v2) * g2)
 		elif self.op == 'VAR':
 			return 1.0 if self == vars else 0.0
-		else:
-			return NotImplementedError(f'Operation {self.op} undefined')
 
 	def __add__(self, other):
 		return Operation(self, other, 'ADD')
@@ -76,8 +74,6 @@ class Operation:
 			return float(self.v1) ** float(self.v2)
 		elif self.op == 'VAR':
 			return float(self.v1)
-		else:
-			raise NotImplementedError(f'Operation {self.op} undefined')
 
 	def __repr__(self):
 		return f'{self.op}({float(self.v1):.3f}' + (')' if self.op == 'VAR' else f', {float(self.v2):.3f})')
