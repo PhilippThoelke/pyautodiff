@@ -8,8 +8,8 @@ class Operation:
 		if hasattr(vars, '__iter__'):
 			return [self.gradient(v) for v in vars]
 
-		g1 = self.v1.gradient(vars) if isinstance(self.v1, Operation) else 0
-		g2 = self.v2.gradient(vars) if isinstance(self.v2, Operation) else 0
+		g1 = self.v1.gradient(vars) if isinstance(self.v1, Operation) else 0.0
+		g2 = self.v2.gradient(vars) if isinstance(self.v2, Operation) else 0.0
 
 		if self.op == 'ADD':
 			return float(g1 + g2)
