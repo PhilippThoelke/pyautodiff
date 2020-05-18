@@ -1,3 +1,5 @@
+from math import log
+
 class Operation:
 	def __init__(self, v1, v2=0.0, op='VAR'):
 		self.v1 = v1
@@ -20,7 +22,8 @@ class Operation:
 		elif self.op == 'DIV':
 			return float((g1 * self.v2 - self.v1 * g2) / self.v2 ** 2)
 		elif self.op == 'POW':
-			return float(self.v2) * float(self.v1) ** (float(self.v2) - 1) * g1
+			return (float(self.v2) * float(self.v1) ** (float(self.v2) - 1) * g1) + \
+				   (log(float(self.v1)) * float(self.v1) ** float(self.v2) * g2)
 		elif self.op == 'VAR':
 			return 1.0 if self == vars else 0.0
 		else:
@@ -52,6 +55,9 @@ class Operation:
 
 	def __pow__(self, exp):
 		return Operation(self, exp, 'POW')
+
+	def __rpow__(self, base):
+		return Operation(base, self, 'POW')
 
 	def __neg__(self):
 		return Operation(self, -1.0, 'MUL')
