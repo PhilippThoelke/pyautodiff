@@ -6,6 +6,9 @@ The whole library is contained in `pyautodiff.py` and contains two classes. Only
 
 `pyautodiff` is not intended to be used real world problems but as a learning resource. It lacks error handling in many cases and is very inefficient due to the implementation in pure Python code.
 
+## C++ version
+I have also implemented automatic differentiation in C++ (**WIP**). The code can be found [here](https://github.com/PhilippThoelke/autodiff).
+
 ## Example
 ```python
 from pyautodiff import Variable
