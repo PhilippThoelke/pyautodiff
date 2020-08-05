@@ -6,9 +6,6 @@ The whole library is contained in `pyautodiff.py` and contains two classes. Only
 
 `pyautodiff` is not intended to be used real world problems but as a learning resource. It lacks error handling in many cases and is very inefficient due to the implementation in pure Python code.
 
-## C++ version
-I have also implemented automatic differentiation in C++ (**WIP**). The code can be found [here](https://github.com/PhilippThoelke/autodiff).
-
 ## Example
 ```python
 from pyautodiff import Variable
@@ -27,13 +24,13 @@ result = float(computation)
 gradient = computation.gradient((x, y))
 ```
 More examples can be found in the following files:
-- `example_simple.py`
+- [`example_simple.py`](https://github.com/PhilippThoelke/pyautodiff/blob/master/examples/example_simple.py)
   - simple calculations and differentiation with pyautodiff
-- `example_perceptron.py`
+- [`example_perceptron.py`](https://github.com/PhilippThoelke/pyautodiff/blob/master/examples/example_perceptron.py)
   - implmementation of a perceptron with a sigmoid activation function
   - iterative training for classification of a logical AND using gradient descent
   - gradient computed using pyautodiff
-- `example_mlp.py`
+- [`example_mlp.py`](https://github.com/PhilippThoelke/pyautodiff/blob/master/examples/example_mlp.py)
   - implementation of a multilayer perceptron (MLP) with variable layer sizes and sigmoid activation function
   - iterative training for classification of the non-linear logical XOR
   - MLP is trained with gradient descent using pyautodiff
