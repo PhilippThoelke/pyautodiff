@@ -42,8 +42,8 @@ if __name__ == '__main__':
 	data = [[0, 0], [1, 0], [0, 1], [1, 1]]
 	labels = [0, 1, 1, 0]
 
-	n_epochs = 500
-	print('Training...')
+	n_epochs = 750
+	print('Training on XOR...')
 	for epoch in range(n_epochs):
 		epoch_loss = 0
 		for sample, lbl in zip(data, labels):
@@ -52,7 +52,7 @@ if __name__ == '__main__':
 			epoch_loss += float(loss)
 			mlp.apply_gradient(loss.gradient(mlp.variables()))
 
-		if epoch % (n_epochs // 5) == 0:
+		if (epoch + 1) % (n_epochs // 5) == 0:
 			print(f'Loss is {epoch_loss / len(data):.3f} in epoch {epoch + 1}')
 
 	print('\nTesting...')
