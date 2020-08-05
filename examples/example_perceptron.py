@@ -31,7 +31,7 @@ if __name__ == '__main__':
 	labels = [0, 0, 0, 1]
 
 	n_epochs = 250
-	print('Training...')
+	print('Training on AND...')
 	for epoch in range(n_epochs):
 		epoch_loss = 0
 		for sample, lbl in zip(data, labels):
